@@ -2,7 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
-const routes = require("./api/routes/routes");
+const usersRouter = require("./api/routes/routes.users");
+const vehiclesRouter = require("./api/routes/routes.vehicles");
+const tracksRouter = require("./api/routes/routes.tracks");
 const path = require("path");
 
 
@@ -19,7 +21,9 @@ app.use(express.json());
 app.use(cors());
 
 
-app.use("/api", routes);
+app.use("/api", usersRouter);
+app.use("/api", vehiclesRouter);
+app.use("/api", tracksRouter);
 
 
 
